@@ -97,7 +97,7 @@ public class TestUser {
         });
 
         for (User user : result) {
-            Assert.assertEquals(user.sex, true);
+            Assert.assertTrue(user.sex);
             System.out.println(user);
         }
     }
@@ -116,7 +116,7 @@ public class TestUser {
             Assert.assertEquals(user.age, 58);
             Assert.assertEquals(user.weight, 26);
             Assert.assertEquals(user.speciality, "groom");
-            Assert.assertEquals(user.sex, true);
+            Assert.assertTrue(user.sex);
             System.out.println(user);
         }
     }
@@ -148,7 +148,7 @@ public class TestUser {
 
         for (User user : result) {
             Assert.assertEquals(user.age, 29);
-            Assert.assertEquals(user.sex, false);
+            Assert.assertFalse(user.sex);
             System.out.println(user);
         }
     }
@@ -158,12 +158,12 @@ public class TestUser {
         List<User> result = UserCheck.filterCondition(userList, new UserCheck() {
             @Override
             public boolean checkConditions(User user) {
-                return user.sex == true;
+                return user.sex;
             }
         });
 
         for (User user : result) {
-            Assert.assertEquals(user.sex, true);
+            Assert.assertTrue(user.sex);
             System.out.println(user);
         }
     }
@@ -173,12 +173,12 @@ public class TestUser {
         List<User> result = UserCheck.filterCondition(userList, new UserCheck() {
             @Override
             public boolean checkConditions(User user) {
-                return user.sex == false;
+                return !user.sex;
             }
         });
 
         for (User user : result) {
-            Assert.assertEquals(user.sex, false);
+            Assert.assertFalse(user.sex);
             System.out.println(user);
         }
     }
